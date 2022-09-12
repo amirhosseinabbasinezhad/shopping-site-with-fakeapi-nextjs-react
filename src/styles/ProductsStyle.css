@@ -1,0 +1,171 @@
+.header_homepage {
+    margin: 5px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 1;
+}
+
+.nametext>h5 {
+    color: rgb(58, 58, 58);
+    font-size: 10px;
+    margin: 0px;
+    padding: 0;
+}
+
+.nametext>h4 {
+    color: rgb(113, 113, 113);
+    font-size: 12px;
+    margin: 1px;
+    padding: 0;
+}
+
+.menubtn {
+
+    box-shadow: 0 5px 10px 0 rgba(71, 71, 71, 0.1);
+    background-color: #fff;
+    border-radius: 50%;
+}
+
+.searchbar {
+    margin-top: 15px;
+
+
+    display: flex;
+    justify-content: space-around;
+}
+
+.searcharea {
+    box-shadow: 0 5px 10px 0 rgba(0, 0, 0, .1);
+    background-color: #fff;
+    border-radius: 42px;
+}
+
+.menusearch {
+    width: 15px;
+    background-color: red;
+
+}
+
+.slide {
+
+    background: linear-gradient(90deg, #fdb2ba, #f89aa3);
+    position: relative;
+
+    margin-top: 45px;
+
+    box-shadow: 0 5px 10px 0 rgba(255, 190, 190, 0.814);
+
+    height: 120px;
+    border-radius: 22px;
+}
+
+.texts {
+    margin-top: 20px;
+    margin-right: 30px;
+    float: right;
+}
+
+.texts>h6,
+h5 {
+
+    margin: 10px;
+}
+
+.slide>.imagebaner {
+
+    width: 175px;
+    position: absolute;
+    left: 15px;
+    bottom: -3px;
+}
+
+.filterproducts {
+    display: flex;
+
+    margin-top: 10px;
+}
+
+.filterproducts>h4 {
+    background-color: #f89aa3;
+    margin-right: 20px;
+    padding: 10px 20px 10px 20px;
+    border-radius: 20px;
+}
+
+.products {
+
+    display: grid;
+    grid-template-columns: repeat(2, 170px);
+    grid-auto-rows: 280px;
+    grid-gap: 10px;
+    width: 350px;
+
+}
+
+.product {
+    display: grid;
+    grid-template-rows: repeat(2, 150px);
+    height: 210px;
+
+    border-radius: 30px;
+    background-color: #fff;
+}
+.maininfo{
+    height: 100px;
+}
+
+.imagebox {
+
+    width: 170px;
+
+    border-radius: inherit;
+}
+
+.imagebox>img {
+
+    width: 100%;
+    object-fit: cover;
+
+
+    border-radius: inherit;
+}
+
+.likeicon {
+    float: inline-end;
+    color: #fff;
+    margin-right: 5px;
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(90deg, #fe97a1, rgb(255, 188, 188));
+    border-radius: 50%;
+    padding: 5px;
+}
+
+.textproduct {
+    float: inline-start;
+    width: 120px;
+    margin-left: 5px;
+    color: rgb(44, 43, 43);
+}
+
+.textproduct>h5 {
+    margin: 0;
+}
+
+.textproduct>h6 {
+    margin: 0;
+    color: rgb(95, 95, 95);
+}
+
+.selectmodal {
+    color: rgb(103, 103, 103);
+}
+
+.bottompaging {
+    display: flex;
+    justify-content: space-around;
+}
+
+.bottompaging h5 {
+    color: #f89aa3;
+}

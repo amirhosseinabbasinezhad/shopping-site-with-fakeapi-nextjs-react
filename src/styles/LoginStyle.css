@@ -1,0 +1,117 @@
+body {
+    background-color: #fff8e4;
+    overflow: hidden;
+}
+
+
+.my-page {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    scrollbar-width: none;
+    background: linear-gradient(#fafafe, #fff);
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px;
+
+
+    width: 390px;
+    height: 650px;
+    box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .1);
+}
+
+.content {
+
+    margin: auto;
+}
+
+.header {
+    color: #171717;
+    margin: auto;
+    text-align: center;
+    font-size: 13px;
+}
+
+.form-body {
+    width: 280px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-body>.inputs {
+    margin-top: 20px;
+}
+
+.form-body>.submitbtn {
+    margin-top: 20px;
+    color: #fff;
+
+}
+
+
+
+.bottomtext {
+
+    margin-top: 15px;
+    width: 200px;
+    margin-left: 50px;
+}
+
+.bottomtext>a {
+    color: #858585;
+    text-decoration: none;
+    width: 100px;
+    text-align: center;
+}
+
+.bottomtext>a:hover {
+    color: #171717;
+}
+
+
+.navbar {
+    margin-top: auto;
+    position: sticky;
+    left: 20px;
+    bottom: 12px;
+    width: 350px;
+
+    border-radius: 30px;
+    max-height: 80px;
+    background-color: #fff;
+    padding: 25px;
+    display: flex;
+    justify-content: space-between;
+    z-index: 5;
+}
+
+.message {
+    color: rgba(255, 72, 0, 0.831);
+    font-size: 15px;
+}
+
+.userpage {
+    display: flex;
+    justify-content: space-between;
+}
+
+.userpage>img {
+    margin: 25px;
+    width: 80px;
+
+}
+
+.userpage>h4 {
+    max-width: 100px;
+    padding: 0;
+    margin: 25px 0 70px 25px;
+    color: #171717;
+}
+
+.logoutbtn {
+    margin-left: auto;
+    width: 30px;
+    color: #fff
+}
+
