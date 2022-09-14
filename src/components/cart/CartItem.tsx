@@ -5,7 +5,7 @@ import { productslicestate } from "../store/productsSlice";
 import { carthandler, userstates } from "../store/userSlice";
 
 
-const CartItem: React.FC<{ key: number, image: string, title: string, price: number, amount: number }> = (props) => {
+const CartItem: React.FC<{ key: number, image: string[], title: string, price: number, amount: number }> = (props) => {
     const user = useSelector(userstates);
     const dispatch = useDispatch();
     const curentproduct = useSelector(productslicestate);
