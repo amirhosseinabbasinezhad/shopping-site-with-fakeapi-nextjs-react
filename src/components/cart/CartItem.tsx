@@ -1,11 +1,11 @@
+import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { productslicestate } from "../store/productsSlice";
 import { carthandler, userstates } from "../store/userSlice";
 
 
-
-const CartItem: React.FC<{ key: number, image: string, title: string, price: number, amount: number }> = (props) => {
+const CartItem: React.FC<{ key: number, image: string[], title: string, price: number, amount: number }> = (props) => {
     const user = useSelector(userstates);
     const dispatch = useDispatch();
     const curentproduct = useSelector(productslicestate);
@@ -25,7 +25,7 @@ const CartItem: React.FC<{ key: number, image: string, title: string, price: num
     return (<>
         <div className="cartitem">
             <div className="productimagecart">
-                <img src={props.image} alt="product image" />
+                <Image src={props.image[0]} alt="product image" />
             </div>
             <div className="productinfo">
                 <div className="title"><h5>{props.title}</h5></div>
