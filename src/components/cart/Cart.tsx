@@ -7,8 +7,10 @@ import CartItem from "./CartItem";
 const Cart: React.FC = () => {
 
     const user = useSelector(userstates);
+
     const itemsincart = user.cart.items.map((item, index) => {
-        return <CartItem key={item.productItem.id} image={item.productItem.images[0]} title={item.productItem.title} price={item.productItem.price}
+        const imgurl = item.productItem.images[0];
+        return <CartItem key={item.productItem.id} image={imgurl} title={item.productItem.title} price={item.productItem.price}
             amount={item.amount} />
     })
     return (<>
