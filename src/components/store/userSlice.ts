@@ -6,12 +6,12 @@ import axios from 'axios';
 export interface cartItem {
     readonly productItem: {
         id: number,
-        title: String,
+        title: string,
         price: number,
-        description: String,
+        description: string,
         category: {},
-        images: String[],
-        categoryId: String,
+        images: string[],
+        categoryId: string,
     },
     readonly amount: number,
 }
@@ -21,11 +21,11 @@ export interface userState {
     emailavailable: boolean,
     userInfo: {
         id: number,
-        email: String,
-        password: String,
-        name: String,
-        role: String,
-        avatar: String
+        email: string,
+        password: string,
+        name: string,
+        role: string,
+        avatar: string
     },
     cart: {
         items: cartItem[],
@@ -98,12 +98,12 @@ export const userslice = createSlice({
 export const carthandler = (dispatch: Dispatch<AnyAction>,
     productItem: {
         id: number,
-        title: String,
+        title: string,
         price: number,
-        description: String,
+        description: string,
         category: {},
-        images: String[],
-        categoryId: String,
+        images: string[],
+        categoryId: string,
     },
     prevcart: { items: cartItem[], totalAmount: number }, amount: number) => {
     const prevItems = prevcart.items;
