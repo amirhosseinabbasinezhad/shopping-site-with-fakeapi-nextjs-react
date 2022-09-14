@@ -7,7 +7,7 @@ import { useDispatch } from "react-redux";
 import SingleProduct from "../../../components/singleProduct/SingleProduct";
 import { fechSingleProduct } from "../../../components/store/productsSlice";
 
-const products: NextPage = () => {
+const Products: NextPage = () => {
     const router = useRouter();
     const { productid } = router.query;
 
@@ -31,4 +31,4 @@ const products: NextPage = () => {
             <SingleProduct pid={productid} />}
     </>)
 }
-export default products;
+export default Products;
