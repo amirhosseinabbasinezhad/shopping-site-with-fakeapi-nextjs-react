@@ -42,7 +42,7 @@
 
 .menusearch {
     width: 15px;
-    background-color: red;
+
 
 }
 
@@ -71,14 +71,13 @@ h5 {
     margin: 10px;
 }
 
-.slide>.imagebaner {
 
-    width: 175px;
+.imagebaner img{
+    width: 210px;
     position: absolute;
-    left: 15px;
+    left: 0;
     bottom: -3px;
 }
-
 .filterproducts {
     display: flex;
 
@@ -106,7 +105,7 @@ h5 {
     display: grid;
     grid-template-rows: repeat(2, 150px);
     height: 210px;
-
+    cursor: pointer;
     border-radius: 30px;
     background-color: #fff;
 }

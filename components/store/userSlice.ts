@@ -3,28 +3,51 @@ import { AnyAction, createSlice, Dispatch } from '@reduxjs/toolkit';
 import { AppState } from "./index"
 import { HYDRATE } from "next-redux-wrapper";
 import axios from 'axios';
+export interface cartItem {
+    readonly productItem: {
+        id: number,
+        title: String,
+        price: number,
+        description: String,
+        category: {},
+        images: String[],
+        categoryId: String,
+    },
+    readonly amount: number,
+}
+
 export interface userState {
     authState: boolean,
     emailavailable: boolean,
     userInfo: {
-        id: Number,
+        id: number,
         email: String,
         password: String,
         name: String,
         role: String,
         avatar: String
+    },
+    cart: {
+        items: cartItem[],
+        totalAmount: number,
+
     }
 }
 const userState = {
     authState: false,
     emailavailable: null,
     userInfo: {
-        id: null,
+        id: 0,
         email: "",
         password: "",
         name: "",
         role: "",
         avatar: "",
+    },
+    cart: {
+        items: [] as cartItem[],
+        totalAmount: 0,
+
     }
 }
 export const userslice = createSlice({
@@ -47,13 +70,19 @@ export const userslice = createSlice({
             state.authState = true;
         },
         Logout(state) {
-            state.userInfo.id = null,
+            state.userInfo.id = 0,
                 state.userInfo.email = "",
                 state.userInfo.password = "",
                 state.userInfo.role = "",
                 state.userInfo.name = "",
                 state.userInfo.avatar = "",
                 state.authState = false;
+        },
+        addProductToCart(state, action) {
+            state.cart.items = action.payload;
+        },
+        setTotalAmount(state, action) {
+            state.cart.totalAmount = action.payload;
         }
     },
     extraReducers: {
@@ -66,6 +95,54 @@ export const userslice = createSlice({
     },
 
 })
+export const carthandler = (dispatch: Dispatch<AnyAction>,
+    productItem: {
+        id: number,
+        title: String,
+        price: number,
+        description: String,
+        category: {},
+        images: String[],
+        categoryId: String,
+    },
+    prevcart: { items: cartItem[], totalAmount: number }, amount: number) => {
+    const prevItems = prevcart.items;
+    let sendItems;
+    const prevTotalAmount = prevcart.totalAmount;
+    let newTotalAmount;
+    if (prevItems.length > 0) {
+        prevItems.map((item, index) => {
+
+            if (item.productItem.id === productItem.id) {
+
+                const sendItemss: cartItem[] = [...prevItems];
+                sendItemss[index] = {
+                    productItem: productItem,
+                    amount: item.amount + amount,
+                }
+
+                dispatch(userAction.addProductToCart(sendItemss));
+            }
+            else {
+                sendItems = [...prevItems, { productItem: productItem, amount: amount }];
+                dispatch(userAction.addProductToCart(sendItems));
+            }
+            newTotalAmount = prevTotalAmount + amount * productItem.price;
+            dispatch(userAction.setTotalAmount(newTotalAmount))
+        })
+
+
+
+
+
+    } else {
+        sendItems = [{ productItem: productItem, amount: amount }]
+        dispatch(userAction.addProductToCart(sendItems));
+        newTotalAmount = 0 + amount * productItem.price;
+        dispatch(userAction.setTotalAmount(newTotalAmount))
+    }
+
+}
 export async function addUser(dispatch: Dispatch<AnyAction>, name: string, email: string, password: string) {
 
     try {
@@ -76,7 +153,7 @@ export async function addUser(dispatch: Dispatch<AnyAction>, name: string, email
                 name: name,
                 password: password,
                 role: "costumer",
-                avatar: "https://mui.com/static/images/avatar/2.jpg"
+                avatar: "https://api.lorem.space/image/face?w=150&h=150"
             });
 
         LoginUser(dispatch, email, password)
@@ -119,8 +196,7 @@ export async function LoginUser(dispatch: Dispatch<AnyAction>, email: String, pa
                 }
             },)
         dispatch(userAction.Login(profileresponse.data))
-        console.log(response.data.access_token);
-        console.log(profileresponse.data);
+
     } catch (error) {
         console.error("something is wrong!!");
 

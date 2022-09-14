@@ -8,6 +8,7 @@ import { wrapper } from "../components/store/index";
 import "../styles/LoginStyle.css";
 import "../styles/singleproduct.css"
 import "../styles/ProductsStyle.css";
+import "../styles/cartStyle.css";
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme} >

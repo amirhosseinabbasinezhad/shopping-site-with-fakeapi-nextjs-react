@@ -3,18 +3,26 @@ import SubjectOutlinedIcon from '@mui/icons-material/SubjectOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import HomeIcon from '@mui/icons-material/Home';
 import Button from '@mui/material/Button';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import Link from "next/link";
-import { userstates } from "../store/userSlice"
-import { useSelector } from "react-redux";
+import { userstates, carthandler } from "../store/userSlice";
+import { productslicestate } from '../store/productsSlice';
+import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { IconButton } from '@mui/material';
 import { useEffect, useState } from 'react';
 const Navbar = () => {
-
+    const dispatch = useDispatch();
     const user = useSelector(userstates);
+    const curentproduct = useSelector(productslicestate);
     const [showNav, setShowNav] = useState(true);
     const router = useRouter();
+    const handleAddToCart = () => {
+        const cartArray = user.cart
+        carthandler(dispatch, curentproduct.product, user.cart, 1);
+
+        curentproduct.product;
+
+    }
     useEffect(() => {
         if (router.pathname.includes("products/")) {
             setShowNav(false)
@@ -26,14 +34,14 @@ const Navbar = () => {
     const showProductHandler = () => {
         return <>
             <div className="productbottom">
-                <Button onClick={(e) => { }} color="secondary" className="Buybtn" variant="contained">Buy Now</Button>
+                <Button onClick={handleAddToCart} color="secondary" className="Buybtn" variant="contained">Buy Now</Button>
                 <div className="btnpcart">
-                <IconButton sx={{ p: '15px' }}   >
-                    <AddShoppingCartIcon color="secondary" />
-                </IconButton>
+                    <IconButton onClick={(e) => { router.push("/cart") }} sx={{ p: '15px' }}   >
+                        <ShoppingCartOutlinedIcon color="secondary" />
+                    </IconButton>
                 </div>
-                
-              
+
+
             </div>
         </>
 

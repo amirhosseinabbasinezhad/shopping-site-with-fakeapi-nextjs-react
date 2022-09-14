@@ -1,13 +1,13 @@
 
 import React, { useEffect } from "react";
 import Router from "next/router";
-
+import CartPage from '../../components/cart/Cart'
 
 const Cart = () => {
 
     return <>
-        <h3>your cart</h3>
+       <Cart />
     </>
 
 }
-export default Cart;
+export default CartPage;
