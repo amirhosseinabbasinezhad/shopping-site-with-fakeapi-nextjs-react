@@ -20,7 +20,7 @@ const SingleProduct: React.FC<{ pid: string | string[] | undefined }> = (props) 
     }) => {
         return <>
             <div className="imageproduct">
-                <img src={product.images} alt="products image" />
+                <img src={product.images[0]} alt="products image" />
             </div>
             <div className="pinfo row ">
                 <h4>{product.title}</h4>

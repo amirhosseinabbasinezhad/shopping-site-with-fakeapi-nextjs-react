@@ -10,7 +10,7 @@ const Cart: React.FC = () => {
 
     const itemsincart = user.cart.items.map((item, index) => {
 
-        return <CartItem key={item.productItem.id} image={item.productItem.images} title={item.productItem.title} price={item.productItem.price}
+        return <CartItem key={item.productItem.id} image={item.productItem.images[0]} title={item.productItem.title} price={item.productItem.price}
             amount={item.amount} />
     })
     return (<>
