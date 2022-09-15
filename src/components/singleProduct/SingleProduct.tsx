@@ -7,14 +7,14 @@ const SingleProduct: React.FC<{ pid: string | string[] | undefined }> = (props) 
     const productstates = useSelector(productslicestate);
 
     const producpage = (product: {
-        id: Number,
-        title: String,
+        id: number,
+        title: string,
         price: number,
-        description: String,
+        description: string,
         category: {},
 
-        images: String[],
-        categoryId: String,
+        images: string[],
+        categoryId: string,
 
 
     }) => {
