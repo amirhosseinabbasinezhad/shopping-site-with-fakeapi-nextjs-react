@@ -25,7 +25,7 @@ const CartItem: React.FC<{ key: number, image: string[], title: string, price: n
     return (<>
         <div className="cartitem">
             <div className="productimagecart">
-                <Image src={props.image[0]} alt="product image" />
+             
             </div>
             <div className="productinfo">
                 <div className="title"><h5>{props.title}</h5></div>
