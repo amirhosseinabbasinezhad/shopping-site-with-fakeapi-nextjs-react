@@ -33,8 +33,8 @@ const Navbar = () => {
     }, [router.pathname]);
     const showProductHandler = () => {
         return <>
-            <div className="productbottom">
-                <Button onClick={handleAddToCart} color="secondary" className="Buybtn" variant="contained">Buy Now</Button>
+            <div className="productbottom Buybtnproduct">
+                <Button onClick={handleAddToCart} color="secondary" className="Buybtnproduct" variant="contained">Buy Now</Button>
                 <div className="btnpcart">
                     <IconButton onClick={(e) => { router.push("/cart") }} sx={{ p: '15px' }}   >
                         <ShoppingCartOutlinedIcon color="secondary" />

@@ -1,3 +1,6 @@
+import { IconButton } from "@mui/material";
+import AddIcon from '@mui/icons-material/Add';
+import RemoveIcon from '@mui/icons-material/Remove';
 import Image from "next/image";
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -12,7 +15,7 @@ const CartItem: React.FC<{ key: number, id: number, image: string, title: string
     const handlePlusCart = () => {
 
         dispatch(userAction.AddToCart(props.id))
-        const cartArray = user.cart    ;
+        const cartArray = user.cart;
 
     }
     const handleMinusCart = () => {
@@ -30,7 +33,10 @@ const CartItem: React.FC<{ key: number, id: number, image: string, title: string
                 <div className="title"><h5>{props.title}</h5></div>
                 <div className="price"><h4>${props.price}</h4></div>
             </div>
-            <div className="itemamount row"><div className="minusbtn" onClick={ handleMinusCart}>-</div><h5>{props.amount}</h5><div className="plusbtn" onClick={handlePlusCart}>+</div></div>
+            <div className="itemamount row">
+                <div className="minusbtn" onClick={handleMinusCart}><IconButton sx={{ p: '3px' }}><RemoveIcon /></IconButton></div>
+                <h4>{props.amount}</h4>
+                <div className="plusbtn" onClick={handlePlusCart}>  <IconButton sx={{ p: '3px' }}><AddIcon /></IconButton></div></div>
 
         </div>
     </>)

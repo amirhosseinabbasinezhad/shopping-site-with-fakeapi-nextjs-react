@@ -1,7 +1,7 @@
 .cartitem {
     box-shadow: 0 10px 30px 0 rgba(165, 165, 165, 0.1);
     width: 100%;
-    padding:7px;
+    padding: 7px;
     margin-top: 20px;
     border-radius: 15px;
     background-color: #fff;
@@ -11,34 +11,22 @@
 }
 
 .itemamount {
-    width: 23%;
+    width: 28%;
     display: flex;
     justify-content: space-between;
 }
-.itemamount h5{
-    padding: 5px;
-}
-.plusbtn,
-.minusbtn {
-    font-size: 18px;
-    padding: 8px;
-}
 
-.plusbtn:hover,
-.minusbtn:hover {
-    color: #f89aa3;
-    cursor: pointer;
-
-}
 
 .productimagecart {
     width: 25%;
     border-radius: inherit;
 }
+
 .productimagecart img {
     width: 100%;
     border-radius: inherit;
 }
+
 .productinfo h5,
 h4 {
     margin: 5px;
