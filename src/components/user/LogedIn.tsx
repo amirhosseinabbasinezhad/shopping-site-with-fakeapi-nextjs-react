@@ -16,15 +16,15 @@ const LogedIn: React.FC = () => {
         dispatch(userAction.Logout())
         router.push(`/user/login`);
     }
-    return (<><div  style={{ padding: "20px 20px 5px 20px" }}>
+    return (<><div style={{ padding: "20px 20px 5px 20px" }}>
         <Button onClick={(e) => { LogoutHandler(e) }} color="secondary" className="logoutbtn" variant="contained">
-            <LogoutRoundedIcon />
+            <LogoutRoundedIcon className="logoutbtn" />
         </Button>
         <div className="userpage">
             <h4>{user.userInfo.email}</h4>
             <Avatar alt="Travis Howard" src={user.userInfo.avatar} sx={{ width: 80, height: 80 }} />
         </div>
-        </div>
+    </div>
     </>)
 }
 export default LogedIn;

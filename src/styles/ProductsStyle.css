@@ -50,7 +50,7 @@
 
     background: linear-gradient(90deg, #fdb2ba, #f89aa3);
     position: relative;
-
+    color: #fff;
     margin-top: 45px;
 
     box-shadow: 0 5px 10px 0 rgba(255, 190, 190, 0.814);
@@ -63,6 +63,7 @@
     margin-top: 20px;
     margin-right: 30px;
     float: right;
+    color: #fff;
 }
 
 .texts>h6,
@@ -72,12 +73,13 @@ h5 {
 }
 
 
-.imagebaner img{
+.imagebaner img {
     width: 210px;
     position: absolute;
     left: 0;
     bottom: -3px;
 }
+
 .filterproducts {
     display: flex;
 
@@ -85,6 +87,7 @@ h5 {
 }
 
 .filterproducts>h4 {
+    color: #fff;
     background-color: #f89aa3;
     margin-right: 20px;
     padding: 10px 20px 10px 20px;
@@ -109,7 +112,8 @@ h5 {
     border-radius: 30px;
     background-color: #fff;
 }
-.maininfo{
+
+.maininfo {
     height: 100px;
 }
 

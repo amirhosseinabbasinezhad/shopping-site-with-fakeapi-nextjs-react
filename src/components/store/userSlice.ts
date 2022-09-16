@@ -78,6 +78,40 @@ export const userslice = createSlice({
                 state.userInfo.avatar = "",
                 state.authState = false;
         },
+        AddToCart(state, action) {
+
+            if (state.cart.items.length > 0) {
+
+
+                state.cart.items.map((item, index) => {
+                    if (item.productItem.id === action.payload) {
+
+                        state.cart.items[index] = { productItem: item.productItem, amount: item.amount + 1 }
+                        state.cart.totalAmount = state.cart.totalAmount + state.cart.items[index].productItem.price;
+                    }
+                })
+            }
+
+        },
+        DeletFromCart(state, action) {
+
+            if (state.cart.items.length > 0) {
+
+
+                state.cart.items.map((item, index) => {
+                    if (item.productItem.id === action.payload) {
+
+                        if (item.amount > 0) {
+                            state.cart.items[index] = { productItem: item.productItem, amount: item.amount - 1 }
+                            state.cart.totalAmount = state.cart.totalAmount - state.cart.items[index].productItem.price;
+                        }
+
+
+                    }
+                })
+            }
+
+        },
         addProductToCart(state, action) {
             state.cart.items = action.payload;
         },
