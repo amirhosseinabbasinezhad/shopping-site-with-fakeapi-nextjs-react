@@ -83,7 +83,7 @@ const Navbar = () => {
                     <h3>${user.cart.totalAmount}</h3>
                 </div>
                 <div className="paynowbtn">
-                    <Button onClick={HandlePayNow} color="secondary" className="paynowbtn" variant="contained">Pay Now</Button>
+                    <Button onClick={HandlePayNow} color="secondary" className="paybtn" variant="contained">Pay Now</Button>
                 </div>
             </div>
         </>
