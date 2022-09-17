@@ -15,6 +15,7 @@ const Navbar = () => {
     const user = useSelector(userstates);
     const curentproduct = useSelector(productslicestate);
     const [showNav, setShowNav] = useState(true);
+    const [showPayBTN, setShowPayBTN] = useState(false);
     const router = useRouter();
     const handleAddToCart = () => {
         const cartArray = user.cart
@@ -25,12 +26,28 @@ const Navbar = () => {
     }
     useEffect(() => {
         if (router.pathname.includes("products/")) {
+            setShowPayBTN(false)
             setShowNav(false)
         }
+        else if (router.pathname.includes("cart")) {
+            setShowPayBTN(true)
+            setShowNav(true)
+        }
         else {
+            setShowPayBTN(false)
             setShowNav(true)
         }
     }, [router.pathname]);
+
+
+    const HandlePayNow=()=>{
+        if (user.authState===true) {
+            if(user.cart.items.length>0){
+                
+            }
+        }
+
+    }
     const showProductHandler = () => {
         return <>
             <div className="productbottom">
@@ -49,17 +66,31 @@ const Navbar = () => {
     const navColorHandler = () => {
         const url = router.pathname
         return <>
-            <div className='navbar'>
+            <div className='navbar' style={{  marginTop:`${showPayBTN ? "5px" : "auto"}`}}>
                 <Link href={"/home"}><HomeIcon color={url.includes("/home") ? "secondary" : "disabled"} /></Link>
                 <Link href={"/category"}><SubjectOutlinedIcon color={url.includes("/category") ? "secondary" : "disabled"} /></Link>
                 <Link href={"/cart"}><ShoppingCartOutlinedIcon color={url.includes("/cart") ? "secondary" : "disabled"} /></Link>
                 <Link href={`/user/${user.userInfo.name}`}><PersonOutlineSharpIcon color={url.includes("/user") ? "secondary" : "disabled"} /></Link>
             </div>
         </>
+    }
+
+    const BottomCart = () => {
+
+        return <>
+            <div className="Cartbottom">
+            <div className="total">
+                <h3>${user.cart.totalAmount}</h3>
+            </div>
+                <Button onClick={() => { }} color="secondary" className="paynowbtn" variant="contained">Pay Now</Button>
+            </div>
+        </>
 
     }
     return (<>
+        {showPayBTN && BottomCart()}
         {showNav ? navColorHandler() : showProductHandler()}
+
     </>)
 }
 export default Navbar;

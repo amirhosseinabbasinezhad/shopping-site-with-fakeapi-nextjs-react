@@ -7,6 +7,7 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 
 import { userAction } from "../store/userSlice"
 import { useRouter } from 'next/router';
+import Link from "next/link";
 
 const LogedIn: React.FC = () => {
     const user = useSelector(userstates);
@@ -23,6 +24,9 @@ const LogedIn: React.FC = () => {
         <div className="userpage">
             <h4>{user.userInfo.email}</h4>
             <Avatar alt="Travis Howard" src={user.userInfo.avatar} sx={{ width: 80, height: 80 }} />
+        </div>
+        <div className="cartinaccunt">
+            <Link href="/cart"><h3>cart</h3></Link>
         </div>
     </div>
     </>)

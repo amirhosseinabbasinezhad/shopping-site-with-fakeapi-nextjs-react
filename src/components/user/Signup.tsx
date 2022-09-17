@@ -51,6 +51,12 @@ const Signup: React.FC = () => {
             checkAvailable(dispatch, email);
             if (emailIsAvailable.emailavailable === true) {
                 addUser(dispatch, name, email, password);
+                setTimeout(() => {
+                    if (user.authState === false) {
+                        setSignupErrors((signupErrors) => [...signupErrors, "sign up failed"]);
+                    }
+                }, 5000);
+
             }
             else {
                 setSignupErrors((signupErrors) => [...signupErrors, "email is not available"]);

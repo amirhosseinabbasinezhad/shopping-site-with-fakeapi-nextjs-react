@@ -10,20 +10,16 @@ import { fechSingleProduct } from "../../../components/store/productsSlice";
 const Products: NextPage = () => {
     const router = useRouter();
     const { productid } = router.query;
-
     const [isloading, setIsloading] = useState(true);
     const dispatch = useDispatch()
     useEffect(() => {
         if (!productid) {
-            return ;
+            return;
         }
         else {
             fechSingleProduct(dispatch, productid);
             setIsloading(false)
-            console.log(productid);
-            
         }
-
     }, [productid])
 
     return (<>

@@ -73,7 +73,7 @@ body {
 
 
 .navbar {
-    margin-top: auto;
+  
     position: sticky;
     left: 15px;
     bottom: 12px;
@@ -114,4 +114,7 @@ body {
     margin-left: auto;
     width: 30px;
     color: #fff
+}
+.cartinaccunt{
+    cursor: pointer;
 }

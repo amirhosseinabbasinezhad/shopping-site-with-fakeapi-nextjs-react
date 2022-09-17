@@ -19,6 +19,7 @@ export interface productState {
     products: product[];
     product: product;
     categoryapi: string;
+    Limit:string,
     page: number,
 }
 const productState = {
@@ -36,6 +37,7 @@ const productState = {
     
     } ,
     categoryapi: "0",
+    Limit:"10",
     page: 1,
 }
 export const productSlice = createSlice({
@@ -55,6 +57,9 @@ export const productSlice = createSlice({
         setPage(state, action) {
             state.page = action.payload;
         },
+        setLimit(state, action) {
+            state.Limit = action.payload;
+        },
 
     },
 
@@ -68,26 +73,22 @@ export const productSlice = createSlice({
     },
 
 })
-export async function fechData(dispatch: Dispatch<AnyAction>, id: string | undefined, page: Number) {
+export async function fechData(dispatch: Dispatch<AnyAction>, id: string | undefined, page: number,limit: string) {
 
 
     try {
         if (id === "0" || id === null) {
-            const response = await axios.get(`https://api.escuelajs.co/api/v1/products?offset=${page}0&limit=10`);
+            const response = await axios.get(`https://api.escuelajs.co/api/v1/products?offset=${page}0&limit=${limit}`);
 
             dispatch(productAction.setProducts(response.data))
         }
         else {
-            const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${id}/products?offset=${page}0&limit=10`);
+            const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${id}/products?offset=${page}0&limit=${limit}`);
 
             dispatch(productAction.setProducts(response.data))
         }
-
-
-
-        console.log("data get ...");
     } catch (error) {
-        console.error("something is wrong!!");
+       
     }
 }
 
@@ -98,9 +99,9 @@ export async function fechSingleProduct(dispatch: Dispatch<AnyAction>, id: strin
         const response = await axios.get(`https://api.escuelajs.co/api/v1/products/${id}`);
         dispatch(productAction.setSingleProduct(response.data));
 
-        console.log("data get ...");
+       
     } catch (error) {
-        console.error("something is wrong!!");
+        
     }
 }
 export const productAction = productSlice.actions;

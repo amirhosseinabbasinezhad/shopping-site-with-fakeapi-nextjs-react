@@ -13,11 +13,11 @@ import { Button } from '@mui/material';
 import { useState, useEffect } from 'react';
 const style = {
     position: 'absolute' as 'absolute',
-    top: '50%',
+    top: '35%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     width: 350,
-    height: 180,
+    height: 300,
     bgcolor: '#fff',
     overflowY: "scroll",
     scrollbarWidth: "none",
@@ -30,13 +30,11 @@ const style = {
 export default function SelectFilters() {
     const [categoryType, setCategoryType] = useState<string>("0");
     const [open, setOpen] = useState(false);
+    const [limit, setLimit] = useState<string>("10");
     const showselect = useSelector(categoryStates);
     const dispatch = useDispatch();
-
-
-
     const handleselects = () => {
-
+        dispatch(productAction.setLimit(limit));
         dispatch(productAction.setSelects(categoryType));
         dispatch(productAction.setPage(1));
         handleClose();
@@ -63,32 +61,46 @@ export default function SelectFilters() {
             >
                 <Box sx={style}>
                     <div className="selectmodal">
-
                         <ul>
-                            <FormControl>
-                                <FormLabel id="demo-radio-buttons-group-label" color="secondary">category:</FormLabel>
-                                <RadioGroup
-                                    onChange={(e) => { setCategoryType(e.target.value) }}
-                                    aria-labelledby="demo-radio-buttons-group-label"
-                                    defaultValue={0}
-                                    name="radio-buttons-group"
-                                >
-                                    <FormControlLabel value="0" control={<Radio color="secondary" />} label="All" />
-                                    <FormControlLabel value="1" control={<Radio color="secondary" />} label="Clothes" />
-                                    <FormControlLabel value="2" control={<Radio color="secondary" />} label="Electronics" />
-                                    <FormControlLabel value="3" control={<Radio color="secondary" />} label="Furniture" />
-                                    <FormControlLabel value="4" control={<Radio color="secondary" />} label="Shoes" />
-                                    <FormControlLabel value="5" control={<Radio color="secondary" />} label="Others" />
-                                </RadioGroup>
-                                <Button onClick={handleselects} color="secondary" className="logoutbtn" variant="contained">
+
+                            <div className="selecttwo">
+                                <FormControl>
+                                    <FormLabel id="demo-radio-buttons-group-label" color="secondary">limit products on page:</FormLabel>
+                                    <RadioGroup
+                                        onChange={(e) => { setLimit(e.target.value) }}
+                                        aria-labelledby="demo-radio-buttons-group-label"
+                                        defaultValue="10"
+                                        name="radio-buttons-group"
+                                    >
+                                        <FormControlLabel value="5" control={<Radio color="secondary" />} label="5" />
+                                        <FormControlLabel value="10" control={<Radio color="secondary" />} label="10" />
+                                        <FormControlLabel value="20" control={<Radio color="secondary" />} label="20" />
+                                        <FormControlLabel value="30" control={<Radio color="secondary" />} label="30" />
+                                    </RadioGroup>
+                                </FormControl>
+                            </div>
+                            <div className="filters">
+                                <FormControl>
+                                    <FormLabel id="demo-radio-buttons-group-label" color="secondary">category:</FormLabel>
+                                    <RadioGroup
+                                        onChange={(e) => { setCategoryType(e.target.value) }}
+                                        aria-labelledby="demo-radio-buttons-group-label"
+                                        defaultValue={"0"}
+                                        name="radio-buttons-group"
+                                    >
+                                        <FormControlLabel value="0" control={<Radio color="secondary" />} label="All" />
+                                        <FormControlLabel value="1" control={<Radio color="secondary" />} label="Clothes" />
+                                        <FormControlLabel value="2" control={<Radio color="secondary" />} label="Electronics" />
+                                        <FormControlLabel value="3" control={<Radio color="secondary" />} label="Furniture" />
+                                        <FormControlLabel value="4" control={<Radio color="secondary" />} label="Shoes" />
+                                        <FormControlLabel value="5" control={<Radio color="secondary" />} label="Others" />
+                                    </RadioGroup>
+                                </FormControl>
+                            </div>
+                            <Button onClick={handleselects} color="secondary" className="logoutbtn" variant="contained">
                                 filter
                             </Button>
-                            </FormControl>
-
-                            
-
                         </ul>
-
                     </div>
                 </Box>
             </Modal>

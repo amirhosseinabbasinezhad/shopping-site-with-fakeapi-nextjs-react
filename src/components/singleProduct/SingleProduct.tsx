@@ -33,14 +33,9 @@ const SingleProduct: React.FC<{ pid: string | string[] | undefined }> = (props) 
         </>
     }
     return (<>
-
         <div className="singleproduct">
-
             {producpage(productstates.product)}
         </div>
-
-
-
     </>)
 }
 export default SingleProduct;

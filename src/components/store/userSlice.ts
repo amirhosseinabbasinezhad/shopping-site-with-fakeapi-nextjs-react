@@ -101,9 +101,15 @@ export const userslice = createSlice({
                 state.cart.items.map((item, index) => {
                     if (item.productItem.id === action.payload) {
 
-                        if (item.amount > 0) {
+                        if (item.amount > 1) {
                             state.cart.items[index] = { productItem: item.productItem, amount: item.amount - 1 }
                             state.cart.totalAmount = state.cart.totalAmount - state.cart.items[index].productItem.price;
+                        }
+
+                        else if (item.amount === 1) {
+                            state.cart.totalAmount = state.cart.totalAmount - state.cart.items[index].productItem.price;
+                            const newitems = state.cart.items.splice(index, 1);
+
                         }
 
 
@@ -197,7 +203,7 @@ export async function addUser(dispatch: Dispatch<AnyAction>, name: string, email
         }
 
     } catch (error) {
-        console.error("something is wrong!!");
+
     }
 }
 export async function checkAvailable(dispatch: Dispatch<AnyAction>, email: string) {
@@ -209,7 +215,7 @@ export async function checkAvailable(dispatch: Dispatch<AnyAction>, email: strin
 
         dispatch(userAction.isAvailable({ Available: response.data.isAvailable }))
     } catch (error) {
-        console.error("something is wrong!!");
+
 
     }
 
@@ -235,14 +241,14 @@ export async function LoginUser(dispatch: Dispatch<AnyAction>, email: String, pa
                         Authorization: `Bearer ${response.data.access_token}`
                     }
                 },)
-           
+
             if (profileresponse.status === 200) {
                 dispatch(userAction.Login(profileresponse.data))
             }
         }
 
     } catch (error) {
-        console.error("something is wrong!!");
+
 
     }
 }

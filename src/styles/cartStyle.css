@@ -12,10 +12,17 @@
 
 .itemamount {
     width: 28%;
+    font-size: 20px;
+  
     display: flex;
     justify-content: space-between;
 }
 
+.minusbtn,
+.plusbtn {
+padding-top: 20px;
+    max-height: 20px;
+}
 
 .productimagecart {
     width: 25%;
@@ -27,8 +34,8 @@
     border-radius: inherit;
 }
 
-.productinfo > h5,
-.productinfo > h4 {
+.productinfo>h5,
+.productinfo>h4 {
     margin: 5px;
 
 }
@@ -49,4 +56,24 @@
     left: 25px;
     bottom: 25px;
     color: rgb(58, 58, 58);
+}
+
+.Cartbottom {
+    display: flex;
+    justify-content: space-between;
+    margin-top: auto;
+    margin-bottom: 15px;
+    position: sticky;
+    left: 20px;
+    bottom: 12px;
+    width: 350px;
+
+
+
+}
+
+.paynowbtn {
+    width: 200px;
+    color: #fff;
+    border-radius: 40px;
 }

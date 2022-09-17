@@ -16,12 +16,11 @@ const Products = () => {
     //useeffects
     useEffect(() => {
         dispatch(productAction.setPage(page));
-
     }, [page]);
     useEffect(() => {
-        fechData(dispatch, productsstates.categoryapi, productsstates.page-1);
+        fechData(dispatch, productsstates.categoryapi, productsstates.page - 1, productsstates.Limit);
         setpage(productsstates.page)
-    }, [productsstates.page, productsstates.categoryapi])
+    }, [productsstates.page, productsstates.categoryapi, productsstates.Limit])
     //functions
     const handelPrevPage = (Event: React.FormEvent) => {
         Event.preventDefault();

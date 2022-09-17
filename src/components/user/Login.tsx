@@ -52,6 +52,12 @@ const Login: React.FC = () => {
 
     if (password.length >= 8 && validateEmail(email)) {
       LoginUser(dispatch, email, password);
+      setTimeout(() => {
+        if (user.authState === false) {
+          setLoginErrors((loginErrors) => [...loginErrors, "user not found"]);
+        }
+      }, 5000);
+
     }
 
   }

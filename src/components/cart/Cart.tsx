@@ -20,9 +20,7 @@ const Cart: React.FC = () => {
             <div className="cartitems">
                 {itemsincart}
             </div>
-            <div className="total">
-                <h3>${user.cart.totalAmount}</h3>
-            </div>
+            
         </div>
 
 

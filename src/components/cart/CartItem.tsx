@@ -35,7 +35,7 @@ const CartItem: React.FC<{ key: number, id: number, image: string, title: string
             </div>
             <div className="itemamount row">
                 <div className="minusbtn" onClick={handleMinusCart}><IconButton sx={{ p: '3px' }}><RemoveIcon /></IconButton></div>
-                <h4>{props.amount}</h4>
+                <div className="amount"><h4>{props.amount}</h4></div>
                 <div className="plusbtn" onClick={handlePlusCart}>  <IconButton sx={{ p: '3px' }}><AddIcon /></IconButton></div></div>
 
         </div>
