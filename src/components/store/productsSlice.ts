@@ -78,12 +78,12 @@ export async function fechData(dispatch: Dispatch<AnyAction>, id: string | undef
 
     try {
         if (id === "0" || id === null) {
-            const response = await axios.get(`https://api.escuelajs.co/api/v1/products?offset=${page}0&limit=${limit}`);
+            const response = await axios.get(`https://api.escuelajs.co/api/v1/products?offset=${page+1}0&limit=${limit}`);
 
             dispatch(productAction.setProducts(response.data))
         }
         else {
-            const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${id}/products?offset=${page}0&limit=${limit}`);
+            const response = await axios.get(`https://api.escuelajs.co/api/v1/categories/${id}/products?offset=${page+1}0&limit=${limit}`);
 
             dispatch(productAction.setProducts(response.data))
         }

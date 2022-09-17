@@ -67,13 +67,13 @@ padding-top: 20px;
     left: 20px;
     bottom: 12px;
     width: 350px;
-
-
+    color: #fff;
+    border-radius: 40px;
 
 }
 
 .paynowbtn {
     width: 200px;
     color: #fff;
-    border-radius: 40px;
+    border-radius: inherit;
 }

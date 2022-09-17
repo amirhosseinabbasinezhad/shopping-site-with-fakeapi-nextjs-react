@@ -40,10 +40,10 @@ const Navbar = () => {
     }, [router.pathname]);
 
 
-    const HandlePayNow=()=>{
-        if (user.authState===true) {
-            if(user.cart.items.length>0){
-                
+    const HandlePayNow = () => {
+        if (user.authState === true) {
+            if (user.cart.items.length > 0) {
+                //edame dare ...
             }
         }
 
@@ -66,7 +66,7 @@ const Navbar = () => {
     const navColorHandler = () => {
         const url = router.pathname
         return <>
-            <div className='navbar' style={{  marginTop:`${showPayBTN ? "5px" : "auto"}`}}>
+            <div className='navbar' style={{ marginTop: `${showPayBTN ? "5px" : "auto"}` }}>
                 <Link href={"/home"}><HomeIcon color={url.includes("/home") ? "secondary" : "disabled"} /></Link>
                 <Link href={"/category"}><SubjectOutlinedIcon color={url.includes("/category") ? "secondary" : "disabled"} /></Link>
                 <Link href={"/cart"}><ShoppingCartOutlinedIcon color={url.includes("/cart") ? "secondary" : "disabled"} /></Link>
@@ -79,10 +79,10 @@ const Navbar = () => {
 
         return <>
             <div className="Cartbottom">
-            <div className="total">
-                <h3>${user.cart.totalAmount}</h3>
-            </div>
-                <Button onClick={() => { }} color="secondary" className="paynowbtn" variant="contained">Pay Now</Button>
+                <div className="total">
+                    <h3>${user.cart.totalAmount}</h3>
+                </div>
+                <Button onClick={HandlePayNow} color="secondary" className="paynowbtn" variant="contained">Pay Now</Button>
             </div>
         </>
 
