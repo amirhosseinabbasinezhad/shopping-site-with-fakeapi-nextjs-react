@@ -1,4 +1,4 @@
-import '../styles/globals.css'
+
 import type { AppProps } from 'next/app'
 import { ThemeProvider } from '@mui/material/styles';
 import theme from "../components/theme/themes";
@@ -9,6 +9,7 @@ import "../styles/LoginStyle.css";
 import "../styles/singleproduct.css"
 import "../styles/ProductsStyle.css";
 import "../styles/cartStyle.css";
+import "../styles/categorystyle.css"
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <ThemeProvider theme={theme} >

@@ -75,9 +75,9 @@ body {
 .navbar {
     margin-top: auto;
     position: sticky;
-    left: 20px;
+    left: 15px;
     bottom: 12px;
-    width: 350px;
+    width: 310px;
     border-radius: 30px;
     max-height: 80px;
     background-color: #fff;
@@ -104,7 +104,7 @@ body {
 }
 
 .userpage>h4 {
-    max-width: 100px;
+    font-size: 22px;
     padding: 0;
     margin: 25px 0 70px 25px;
     color: #171717;

@@ -51,7 +51,7 @@ const Navbar = () => {
         return <>
             <div className='navbar'>
                 <Link href={"/home"}><HomeIcon color={url.includes("/home") ? "secondary" : "disabled"} /></Link>
-                <Link href={"/info"}><SubjectOutlinedIcon color={url.includes("/info") ? "secondary" : "disabled"} /></Link>
+                <Link href={"/category"}><SubjectOutlinedIcon color={url.includes("/category") ? "secondary" : "disabled"} /></Link>
                 <Link href={"/cart"}><ShoppingCartOutlinedIcon color={url.includes("/cart") ? "secondary" : "disabled"} /></Link>
                 <Link href={`/user/${user.userInfo.name}`}><PersonOutlineSharpIcon color={url.includes("/user") ? "secondary" : "disabled"} /></Link>
             </div>

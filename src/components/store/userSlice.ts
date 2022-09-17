@@ -60,7 +60,7 @@ export const userslice = createSlice({
             state.emailavailable = action.payload.Available;
         },
         Login(state, action) {
-            console.log(action.payload);
+
             state.userInfo.id = action.payload.id
             state.userInfo.email = action.payload.email
             state.userInfo.password = action.payload.password
@@ -191,8 +191,10 @@ export async function addUser(dispatch: Dispatch<AnyAction>, name: string, email
                 avatar: "https://api.lorem.space/image/face?w=150&h=150"
             });
 
-        LoginUser(dispatch, email, password)
 
+        if (response.status === 201) {
+            LoginUser(dispatch, email, password)
+        }
 
     } catch (error) {
         console.error("something is wrong!!");
@@ -222,15 +224,22 @@ export async function LoginUser(dispatch: Dispatch<AnyAction>, email: String, pa
                 password: password,
             }
         );
-        const profileresponse = await axios.get(`https://api.escuelajs.co/api/v1/auth/profile`,
-            {
-                headers: {
-                    Accept: 'application/json',
-                    'Content-Type': 'application/json',
-                    Authorization: `Bearer ${response.data.access_token}`
-                }
-            },)
-        dispatch(userAction.Login(profileresponse.data))
+
+
+        if (response.status === 201) {
+            const profileresponse = await axios.get(`https://api.escuelajs.co/api/v1/auth/profile`,
+                {
+                    headers: {
+                        Accept: 'application/json',
+                        'Content-Type': 'application/json',
+                        Authorization: `Bearer ${response.data.access_token}`
+                    }
+                },)
+           
+            if (profileresponse.status === 200) {
+                dispatch(userAction.Login(profileresponse.data))
+            }
+        }
 
     } catch (error) {
         console.error("something is wrong!!");

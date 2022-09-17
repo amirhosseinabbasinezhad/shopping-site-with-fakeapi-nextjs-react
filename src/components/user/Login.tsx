@@ -10,10 +10,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { LoginUser, userstates } from "../store/userSlice"
 
 const Login: React.FC = () => {
-//useref
+  //useref
   const Emailref = useRef<HTMLInputElement>(null);
   const Passwordref = useRef<HTMLInputElement>(null);
-//state
+  //state
   const [loginErrors, setLoginErrors] = useState<string[]>([]);
   //redux
   const user = useSelector(userstates);
@@ -21,16 +21,16 @@ const Login: React.FC = () => {
   //router
   const router = useRouter();
   //useEffects
-  useEffect(()=>{
+  useEffect(() => {
     if (user.authState === true) {
       router.push(`/user/${user.userInfo.email}`);
     }
-  },[user.authState])
+  }, [user.authState])
   //functions
   const validateEmail = (emailAddres: string) => {
-    return emailAddres.toLowerCase().match(/^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/)
-
-
+    let pattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    let result = emailAddres.match(pattern);
+    return result
   }
   const LoginHandler = (event: React.FormEvent) => {
     event.preventDefault();

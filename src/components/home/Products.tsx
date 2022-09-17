@@ -1,8 +1,6 @@
 import Product from "./Product";
 import { useSelector } from "react-redux";
 import { productAction, productslicestate } from "../store/productsSlice";
-import Link from "next/link";
-
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 import IconButton from '@mui/material/IconButton';

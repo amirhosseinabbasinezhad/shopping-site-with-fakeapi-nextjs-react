@@ -1,0 +1,111 @@
+.categorytitle {
+  margin: 20px;
+}
+
+.categoriespage>div {
+  cursor: pointer;
+  text-align: center;
+  border-radius: 40px;
+  font-size: 30px;
+}
+
+.categoriespage {
+  display: grid;
+  grid-template-areas:
+
+    'header header'
+    'main right '
+    'menu footer'
+  ;
+  gap: 10px;
+
+  padding: 10px;
+}
+
+.shoes {
+  position: relative;
+  grid-area: header;
+}
+
+.shoes>h4 {
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.59);
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 20px 0 0;
+}
+
+.clothes {
+  position: relative;
+  grid-area: main;
+}
+
+.clothes>h4 {
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.59);
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 20px 0 0;
+}
+
+.electronics {
+  position: relative;
+  grid-area: menu;
+}
+
+.electronics>h4 {
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.59);
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 20px 0 0;
+}
+
+
+.furniture {
+  position: relative;
+  grid-area: right;
+}
+
+.furniture>h4 {
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.59);
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 20px 0 0;
+}
+
+.others {
+  position: relative;
+  grid-area: footer;
+}
+
+.others>h4 {
+  width: 100%;
+  background-color: rgba(34, 34, 34, 0.59);
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0 20px 0 0;
+}
+
+img {
+  width: 100%;
+  border-radius: inherit;
+
+
+}
