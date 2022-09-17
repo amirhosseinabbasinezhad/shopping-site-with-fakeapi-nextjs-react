@@ -78,7 +78,8 @@
     border-radius: 40px;
 }
 
-.paybtn {
+.paynowbtn>.paybtn {
     color: #fff;
+    padding: 0;
     border-radius: inherit;
 }
