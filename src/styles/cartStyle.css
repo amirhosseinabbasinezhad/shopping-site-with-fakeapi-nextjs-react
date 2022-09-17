@@ -79,8 +79,9 @@
 }
 
 .paynowbtn>.paybtn {
-    width: 200px;
+ 
+    width: 240px;
     color: #fff;
-    padding: 0;
+    padding: 20px;
     border-radius: inherit;
 }
