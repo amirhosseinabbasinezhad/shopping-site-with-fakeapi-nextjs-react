@@ -174,10 +174,11 @@ h5 {
 
 .selectmodal {
     color: rgb(103, 103, 103);
-   
+
 }
 
 .bottompaging {
+    margin-bottom: 80px;
     display: flex;
     justify-content: space-around;
 }
