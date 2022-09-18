@@ -17,7 +17,7 @@ body {
 
     width: 390px;
 
-    height: 780px;
+    height: 100vh;
 
     box-shadow: 0 10px 15px 0 rgba(0, 0, 0, .1);
 }
@@ -73,7 +73,7 @@ body {
 
 
 .navbar {
-  
+
     position: sticky;
     left: 15px;
     bottom: 12px;
@@ -115,6 +115,7 @@ body {
     width: 30px;
     color: #fff
 }
-.cartinaccunt{
+
+.cartinaccunt {
     cursor: pointer;
 }
